@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="tailwind.config.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Déli gyümölcsök</h1>
+        <select name="" id="fruits" onchange="handleChange(this)">
+            <option value="x">Válassz</option>
+        </select>
+    </div>
+
+    <script src="data_fruits.js"></script>
+    <script>
+        fruits.forEach(obj=>{
+            document.getElementById('fruits').innerHTML+=`<option value="${obj.id}">${obj.name}</option>`
+        })
+
+        function handleChange(domObj) {
+
+        }
+    </script>
+</body>
+</html>
