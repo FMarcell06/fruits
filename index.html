@@ -10,16 +10,16 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="mycontainer absolute top-0 flex-col border w-[100%] h-screen">
-        <div class="m-auto flex justify-center">
+    <div class="mycontainer absolute top-0 w-[100%] h-screen">
+        <div class="m-auto flex flex-col justify-center max-w-[800px] items-center">
             <h1 class="font-bold text-4xl pb-5 text-green-600">Déli gyümölcsök</h1>
-            <p class="">Neked melyik a kedvenced? 😉</p>
+            <p class="text-2xl pb-3">Neked melyik a kedvenced? 😉</p>
             <select name="" id="fruits" class="h-[50px] bg-green-400 rounded-[10px] transition text-white hover:bg-cyan-700" onchange="handleChange(this)">
                 <option value="x">Válassz</option>
             </select>
         </div>
-        <div class="gyumolcs w-[70%] rounded-[10px] bg-yellow-200 flex items-center justify-center m-auto">
-        </div>
+        <div class="gyumolcs rounded-[10px] bg-yellow-200 flex max-w-[800px] mt-5 m-auto shadow-sm flex-wrap justify-center"></div>
+
     </div>
 
     <script src="data_fruits.js"></script>
@@ -33,9 +33,12 @@
             console.log(id);
             let selectedObj = fruits.find(obj=>obj.id == id)
             console.log(selectedObj.desc);
-            document.querySelector('.gyumolcs').innerHTML=`<img src="img/${selectedObj.image}" class="rounded-[10px] w-auto" alt="">
-            <h1 class="text-1xl font-bold">${selectedObj.name}</h1>
-            <p>${selectedObj.descr}</p>`
+            document.querySelector('.gyumolcs').innerHTML=`<div class="flex-2 flex">
+                <img src="img/${selectedObj.image}" class="rounded-[10px] max-w-[300px] w-[100%]" alt="">
+            </div>
+            <div class="flex-1 flex-col flex p-2 min-w-[170px]">
+                <h1 class="text-2xl font-bold">${selectedObj.name}</h1>
+                <p class="text-1xl text-justify">${selectedObj.descr}</p></div>`
         }
     </script>
 </body>
