@@ -10,12 +10,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="mycontainer">
-        <div class="m-auto ">
-            <h1 class="font-bold">Déli gyümölcsök</h1>
-            <select name="" id="fruits" onchange="handleChange(this)">
+    <div class="mycontainer absolute top-0 flex-col border w-[100%] h-screen">
+        <div class="m-auto flex justify-center">
+            <h1 class="font-bold text-4xl pb-5 text-green-600">Déli gyümölcsök</h1>
+            <p class="">Neked melyik a kedvenced? 😉</p>
+            <select name="" id="fruits" class="h-[50px] bg-green-400 rounded-[10px] transition text-white hover:bg-cyan-700" onchange="handleChange(this)">
                 <option value="x">Válassz</option>
             </select>
+        </div>
+        <div class="gyumolcs w-[70%] rounded-[10px] bg-yellow-200 flex items-center justify-center m-auto">
         </div>
     </div>
 
@@ -26,7 +29,13 @@
         })
 
         function handleChange(domObj) {
-
+            let id = domObj.value;
+            console.log(id);
+            let selectedObj = fruits.find(obj=>obj.id == id)
+            console.log(selectedObj.desc);
+            document.querySelector('.gyumolcs').innerHTML=`<img src="img/${selectedObj.image}" class="rounded-[10px] w-auto" alt="">
+            <h1 class="text-1xl font-bold">${selectedObj.name}</h1>
+            <p>${selectedObj.descr}</p>`
         }
     </script>
 </body>

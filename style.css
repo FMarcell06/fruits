@@ -20,10 +20,11 @@
 
 .mycontainer{
     display: block;
-    place-content: center;
-    justify-content: center;
-    border: 1px solid red;
     height: 100vh;
     width: 100vw !important;
 
+}
+
+#fruits{
+    transition: 0.5s;
 }
